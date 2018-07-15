@@ -9,8 +9,17 @@ class HangpersonGame
   # end
   
   def initialize(word)
+    puts "HangpersonGame.word = #{word}"
     @word = word
+    @guesses = ''
+    @wrong_guesses = ''
   end
+  
+  
+  attr_accessor :word
+  attr_accessor :guesses
+  attr_accessor :wrong_guesses
+  
 
   # You can test it by running $ bundle exec irb -I. -r app.rb
   # And then in the irb: irb(main):001:0> HangpersonGame.get_random_word
