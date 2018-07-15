@@ -19,7 +19,43 @@ class HangpersonGame
   attr_accessor :word
   attr_accessor :guesses
   attr_accessor :wrong_guesses
+
+  def word_with_guesses
+    word_with_guesses = ''
+    @word.each_char do |letter|
+      if @guesses.include? letter 
+        word_with_guesses.concat letter 
+      else
+        word_with_guesses.concat '-'
+      end
+    end
+    return word_with_guesses  
+  end
   
+
+  def guess(letter)
+    puts "Guessed '#{letter}'"
+
+    if letter.nil? or ! /^\w$/.match letter
+      raise ArgumentError
+    end
+    
+    letter = letter.downcase
+    
+    if @guesses.include? letter or @wrong_guesses.include? letter
+      puts "Letter '#{letter}' already guessed : '#{guesses}' & '#{wrong_guesses}'"
+      return false
+    end
+    
+    if @word.include? letter
+      guesses.concat letter
+    else
+      wrong_guesses.concat letter
+    end
+    
+    return true
+  end
+
 
   # You can test it by running $ bundle exec irb -I. -r app.rb
   # And then in the irb: irb(main):001:0> HangpersonGame.get_random_word
