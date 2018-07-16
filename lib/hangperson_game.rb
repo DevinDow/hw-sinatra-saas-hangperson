@@ -54,7 +54,8 @@ class HangpersonGame
     letter = letter.downcase
     
     if @guesses.include? letter or @wrong_guesses.include? letter
-      puts "Letter '#{letter}' already guessed : '#{guesses}' & '#{wrong_guesses}'"
+      #puts "Letter '#{letter}' already guessed : '#{guesses}' & '#{wrong_guesses}'"
+      
       return false
     end
     

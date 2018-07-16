@@ -42,7 +42,9 @@ class HangpersonApp < Sinatra::Base
     #puts "/guess letter = #{letter}"
     
     #puts "/guess game.word = #{session[:game].word}"
-    session[:game].guess letter
+    if !session[:game].guess letter
+      flash[:message] = 'You have already used that letter'
+    end
     
     redirect '/show'
   end
