@@ -9,7 +9,7 @@ class HangpersonGame
   # end
   
   def initialize(word)
-    puts "HangpersonGame.word = #{word}"
+    #puts "HangpersonGame.word = #{word}"
     @word = word
     @guesses = ''
     @wrong_guesses = ''
@@ -45,7 +45,7 @@ class HangpersonGame
   
 
   def guess(letter)
-    puts "Guessed '#{letter}'"
+    #puts "Guessed '#{letter}'"
 
     if letter.nil? or ! /^\w$/.match letter
       raise ArgumentError
