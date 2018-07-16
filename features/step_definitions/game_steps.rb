@@ -84,3 +84,6 @@ When /^(?:|I )press "([^\"]*)"(?: within "([^\"]*)")?$/ do |button, selector|
   end
 end
 
+Then(/^show me the page$/) do
+  save_and_open_page
+end
